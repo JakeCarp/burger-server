@@ -5,11 +5,11 @@ const FakeDB = {
   burgers: [
     {
       name: 'Big burger',
-      id: 1
+      id: 0
     },
     {
       name: 'Small burger',
-      id: 2
+      id: 1
     }
   ]
 }
@@ -38,7 +38,7 @@ class BurgersService {
   async updateBurger(id, burgerData) {
     const index = FakeDB.burgers.findIndex(b => b.id === id)
     if (index === -1) {
-      throw new BadRequest("no burger by that id")
+      throw new BadRequest('no burger by that id')
     }
     FakeDB.splice(index, 1, burgerData)
     return burgerData
